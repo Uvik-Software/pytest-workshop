@@ -15,3 +15,12 @@ def test_land(get_airship, airport):
     assert airport.land(get_airship("Chernivtsi", SMALL))
     assert airport.land(get_airship("Chernivtsi", MEDIUM))
     assert not airport.land(get_airship("Chernivtsi", LARGE))
+    assert len(airport.get_parked_airships()) == 2
+
+def test_land_a_lot(get_airship, airport):
+    assert airport.land(get_airship("Chernivtsi", SMALL))
+    assert airport.land(get_airship("Chernivtsi", SMALL))
+    assert airport.land(get_airship("Chernivtsi", SMALL))
+    assert not airport.land(get_airship("Chernivtsi", MEDIUM))
+    assert not airport.land(get_airship("Chernivtsi", MEDIUM))
+    assert len(airport.get_parked_airships()) == 3
