@@ -15,8 +15,10 @@ def get_airship():
 
     return construct_airship
 
+@pytest.fixture
+def airport():
+    return Airport()
 
-def test_can_land(get_airship):
+def test_can_land(get_airship, airport):
     airship = get_airship("Chernivtsi", SMALL)
-    airport = Airport()
     assert airport.can_land(airship)
