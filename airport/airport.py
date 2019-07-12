@@ -19,7 +19,8 @@ class Airport(object):
         return True
 
     def land(self, airship):
-        self.can_land(airship)
+        if not self.can_land(airship):
+            return False
 
         if airship['size'] == SMALL:
             self.slots_taken += 1
