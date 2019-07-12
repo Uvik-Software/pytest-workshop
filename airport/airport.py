@@ -16,6 +16,10 @@ class Airport(object):
             raise Exception('Unknown airship, please provide your name if you want to land')
         if airship['size'] == LARGE:
             return False
+        if airship['size'] == MEDIUM:
+            return self.parking_slots - self.slots_taken >= 2
+        if airship['size'] == SMALL:
+            return self.parking_slots - self.slots_taken >= 1
         return True
 
     def land(self, airship):
