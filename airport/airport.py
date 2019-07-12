@@ -14,6 +14,8 @@ class Airport(object):
     def can_land(self, airship):
         if not airship['name']:
             raise Exception('Unknown airship, please provide your name if you want to land')
+        if airship['size'] not in [LARGE, MEDIUM, SMALL]:
+            return False
         if airship['size'] == LARGE:
             return False
         if airship['size'] == MEDIUM:
